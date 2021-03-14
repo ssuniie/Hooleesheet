@@ -25,3 +25,6 @@ class Help(commands.Cog):
             color=0xf77eff
         )
         embed.add_field()
+
+def setup(client):
+    client.add_cog(Help(client))
