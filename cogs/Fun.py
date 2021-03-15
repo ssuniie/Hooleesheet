@@ -45,11 +45,11 @@ class Fun(commands.Cog):
             )
             embed.add_field(
                 name='คำถาม ที่เจ้าถามมา?',
-                value=question, inline=True
+                value=question
             )
             embed.add_field(
                 name='คำตอบจากข้า',
-                value=answer, inline=True
+                value=answer, inline=False
             )
             embed.timestamp = datetime.utcnow()
 
