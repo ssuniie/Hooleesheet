@@ -1,2 +1,6 @@
 discord
 praw
+hentai
+Faker
+beautifulsoup4
+pytz
