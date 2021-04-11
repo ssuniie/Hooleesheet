@@ -40,8 +40,6 @@ async def reload(ctx, extension):
 
 # ! Load all Cogs file
 for filename in os.listdir('./cogs'):
-    if filename.startswith('Fun'):
-        continue
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
         print(f'cogs.{filename[:-3]} loaded!')
