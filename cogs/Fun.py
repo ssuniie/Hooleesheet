@@ -74,10 +74,6 @@ class Fun(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    # ping command
-    @commands.command()
-    async def ping(self, ctx): await ctx.send('Pong!')
-
 
 def setup(client):
     client.add_cog(Fun(client))

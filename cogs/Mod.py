@@ -13,7 +13,7 @@ class Mod(commands.Cog):
     # thanos command
     @commands.command()
     @commands.cooldown(1, 60 * 60, commands.BucketType.guild)
-    async def thanos(self, ctx):
+    async def thanos(self, ctx, time_in_second=None):
         if ctx.author is ctx.guild.owner:
             voice_channel = ctx.author.voice.channel
             total_unlucky_members = math.ceil(len(voice_channel.members) / 2)
@@ -40,14 +40,19 @@ class Mod(commands.Cog):
                 unlucky_members_name += f'{user.name} '
 
             embed = discord.Embed(
-                title=f'สรุปบัญชีคนโดนดีดนิ้ว ๖{total_unlucky_members} คน)',
+                title=f'สรุปบัญชีคนโดนดีดนิ้ว {total_unlucky_members} คน)',
                 description=unlucky_members_name
             )
 
+            if time_in_second is None:
+                time_in_second = 20
+                pass
+
+            msg = await ctx.send('คนที่กำลังโดนดีดนิ้วในตอนนี้: ')
             for user in list_of_unlucky_members:
-                print('Muted', user.name)
+                await msg.edit(content=f'คนที่กำลังโดนดีดนิ้วในตอนนี้: {user.name}')
                 await user.edit(mute=True, deafen=True)
-                await asyncio.sleep(20)
+                await asyncio.sleep(time_in_second)
                 await user.edit(mute=False, deafen=False)
 
             await ctx.send(embed=embed)

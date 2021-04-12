@@ -3,8 +3,7 @@ from discord.ext import commands
 
 import os
 
-# CLIENT_NAME = os.environ['CLIENT_NAME']
-CLIENT_NAME = 'AkiHanako'
+CLIENT_NAME = os.environ['CLIENT_NAME']
 
 
 class Client(commands.Cog):
