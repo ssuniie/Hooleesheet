@@ -128,7 +128,7 @@ class Mod(commands.Cog):
         user_name, user_tagid = user.split('#')
 
         for ban_entry in banned_users:
-            user = ban_entry.users
+            user = ban_entry.user
 
             if (user.name, user.discriminator) == (user_name, user_tagid):
                 await ctx.guild.unban(user)
